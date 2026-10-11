@@ -330,10 +330,10 @@ export function DemoRequest() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const er: Record<string, string> = {};
-    if (form.name.trim().length < 2) er.name = "Please enter your name.";
-    if (form.business.trim().length < 2) er.business = "Please enter your business name.";
-    if (!/^(\+?\d[\d\s-]{7,}|@\w{4,}|[^@\s]+@[^@\s]+\.\w+)$/.test(form.contact.trim())) er.contact = "Enter a phone, email or @telegram username.";
-    if (form.note.length > 500) er.note = "Please keep it under 500 characters.";
+    if (form.name.trim().length < 2) er["name"] = "Please enter your name.";
+    if (form.business.trim().length < 2) er["business"] = "Please enter your business name.";
+    if (!/^(\+?\d[\d\s-]{7,}|@\w{4,}|[^@\s]+@[^@\s]+\.\w+)$/.test(form.contact.trim())) er["contact"] = "Enter a phone, email or @telegram username.";
+    if (form.note.length > 500) er["note"] = "Please keep it under 500 characters.";
     setErrors(er);
     if (!Object.keys(er).length) setState("unavailable");
   };
